@@ -1,0 +1,7 @@
+Files already downloaded and verified
+Files already downloaded and verified
+Warmup training for 10 epochs
+ ->->->->->->->->->-> One epoch with self-supervised training <-<-<-<-<-<-<-<-<-<-
+torch.Size([512, 3, 32, 32]) torch.Size([512]) Batch_size from args: 512 lr: 0.01000
+Pixel range for training images : [-2.429065704345703, 2.7537312507629395]
+Epoch: [0][ 0/98]	Time  0.205 ( 0.205)	Data  0.000 ( 0.000)	Loss 44.5416 (44.5416)
