@@ -4,6 +4,11 @@ The official code repository for the NeurIPS'2022 paper "[On the Robustness of D
 
 Note: We provide all the pre-trained saved models for the original Deep Clustering models that we consider for the experiments.  We also provide all the saved generator models to run our attack (Provided you place & train the original models on the original datasets). 
   
+## Main Goal
+- The main goal of this work is to show that deep clustering models are susceptible to adversarial attacks at inference time
+- Other optimization approaches instead of the GAN can also be used
+- We believe our attack loss function provides better results with fewer queries, but other (supervised) losses can also be used if desired
+  
 ## Original Models/Other Links
 
 1. Google Drive for Saved Models: https://drive.google.com/drive/folders/19aUz6zQFC_xlAW2PgMypXcLraKzozxTA?usp=sharing
@@ -32,7 +37,7 @@ Note: We provide all the pre-trained saved models for the original Deep Clusteri
 
 All the main attacks for the models are situated in their own separate directories (CC/, MICE/, NNM/, SCAN/, RUC/, SPICE/). We provide all the files such that you can independently train the models by following their own README.md
 
-For the attack, Inside the root directories of the models they have their own Jupyter Notebooks seggregated by the dataset (Eg: CC_Attack-CIFAR-10.ipynb). Inside the notebooks the code logic flows in the following fashion:
+For the attack, Inside the root directories of the models they have their own Jupyter Notebooks segregated by the dataset (Eg: `CC_Attack-CIFAR-10.ipynb`). Inside the notebooks the code logic flows in the following fashion:
 1. Evaluates the performance of the original model on original dataset.
 2. Trains GAN in a black-box fashion and saves the generator.
 3. Evaluate the model on the generated adversarial samples. 
@@ -41,6 +46,8 @@ For the attack, Inside the root directories of the models they have their own Ju
 6. Generate additional results (perf w. norm).
 
 **Note:**  To successfuly run the code, you will have to download/train and place the original deep clustering models, and update the paths accordingly. The code will automatically download all the datasets. 
+
+**Note:** We utilized and modified the original AdvGAN implementation by mathcbc [here](https://github.com/mathcbc/advGAN_pytorch)
 
 
 ## Anomaly Detection
@@ -59,4 +66,4 @@ Code for attacking Face++ is present inside `anomaly_facepp`.
 
 First run, `adv-gen.ipynb`, this will generate and save the adversarial samples along with original face images in `custom/`, and `custom_adv/` directories. Then `face++-Main.ipynb` will attack the face++ API using the previously saved adv samples. The rest of the files are additional experiements with the API. 
 
-**Note:** You will have to generate the API key and secret by gonig into their user console (https://console.faceplusplus.com/login). 
+**Note:** You will have to generate the API key and secret by going into their user console (https://console.faceplusplus.com/login). 
